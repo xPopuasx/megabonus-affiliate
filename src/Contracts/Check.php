@@ -1,6 +1,6 @@
 <?php
 
-namespace Megabonus\Contracts;
+namespace Megabonus\Laravel\Affiliate\Contracts;
 
 interface Check
 {

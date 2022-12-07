@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Megabonus\Laravel\Affiliate;
 
-
 use Megabonus\Contracts\Check;
 
 class Affiliate implements Check

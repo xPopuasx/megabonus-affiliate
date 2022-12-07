@@ -7,6 +7,9 @@ namespace Megabonus\Laravel\Affiliate\Facades;
 use Illuminate\Support\Facades\Facade;
 use Megabonus\Laravel\Affiliate\Affiliate as FakeAffiliate;
 
+/**
+ * @method static string check(string $url)
+ */
 class Affiliate extends Facade
 {
     /**
