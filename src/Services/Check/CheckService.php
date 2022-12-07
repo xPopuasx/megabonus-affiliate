@@ -14,7 +14,7 @@ class CheckService
     {
         $parseLink = parse_url($link);
 
-        if(!$parseLink['host']){
+        if(!isset($parseLink['host'])){
             throw LinkException::url();
         }
 
