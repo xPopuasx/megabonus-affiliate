@@ -18,7 +18,7 @@ class CheckService
     {
         $parseLink = parse_url($link);
 
-        if(!isset($parseLink['host'])){
+        if(!isset($parseLink['host']) || !isset($parseLink['scheme']) || !isset($parseLink['path'])){
             throw LinkException::url();
         }
 
@@ -34,6 +34,13 @@ class CheckService
     public function checkLinkInTable(string $link): bool
     {
         return DB::table(config('affiliate.has_affiliate_links_table.table'))
-            ->where(config('affiliate.has_affiliate_links_table.column_name'), $link)->exists();
+            ->where(config('affiliate.has_affiliate_links_table.column_name'), $this->buildLink($link))->exists();
+    }
+
+    private function buildLink(string $link): string
+    {
+        $parseLink = parse_url($link);
+
+        return $parseLink['scheme'].'://'.$parseLink['host'].$parseLink['path']
     }
 }
