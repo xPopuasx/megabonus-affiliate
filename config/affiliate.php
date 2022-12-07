@@ -2,10 +2,20 @@
 
 return [
     /*
-     * set access hosts
-     * @example 13087123b91c0876095841-057160897603409=-123
+     * set api key
+     * @example 4124153152
      */
-    'tao_bao_token' => '',
+    'api_key' => env('ALI_API_KEY', '******'),
+    /*
+     * set secret key
+     * @example asd14ra24rt43at3t34t23524wq24das4
+     */
+    'secret_key' => env('ALI_SECRET_KEY', '******'),
+    /*
+     * set tracking id
+     * @example you register company
+     */
+    'tracking_id' => env('ALI_TRACKING_ID', '******'),
     /*
      * set access hosts
      * @example ['aliexpress.com','sl.aliexpress.ru',]
