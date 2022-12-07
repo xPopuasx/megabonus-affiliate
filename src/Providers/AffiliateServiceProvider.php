@@ -17,11 +17,6 @@ class AffiliateServiceProvider extends LaravelServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(
-            $this->getConfigFile(),
-            'affiliate'
-        );
-
         $this->app->bind(FakeAffiliate::class);
     }
 
