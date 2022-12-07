@@ -1,10 +1,10 @@
 <?php
 
-namespace Megabonus\Providers;
+namespace Megabonus\Laravel\Affiliate\Providers;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
-use Affiliate as FakeAffiliate;
-use Megabonus\Facades\Affiliate;
+use Megabonus\Laravel\Affiliate\Affiliate as FakeAffiliate;
+use Megabonus\Laravel\Affiliate\Facades\Affiliate;
 
 class AffiliateServiceProvider extends LaravelServiceProvider
 {

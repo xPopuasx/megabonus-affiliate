@@ -30,10 +30,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Megabonus\\Providers\\AffiliateServiceProvider"
+                "Megabonus\\Laravel\\Affiliate\\Providers\\AffiliateServiceProvider"
             ],
             "aliases": {
-                "Affiliate": "Megabonus\\Facades\\Affiliate"
+                "Affiliate": "Megabonus\\Laravel\\Affiliate\\Facades\\Affiliate"
             }
         }
     }
