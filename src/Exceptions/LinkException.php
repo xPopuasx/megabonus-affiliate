@@ -27,7 +27,7 @@ class LinkException extends InvalidArgumentException
      */
     public static function url(): LinkException
     {
-        return new static(' invalid url');
+        return new static('Invalid url');
     }
 
     /**

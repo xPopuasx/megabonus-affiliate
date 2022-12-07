@@ -4,20 +4,21 @@ declare(strict_types=1);
 
 namespace Megabonus\Laravel\Affiliate;
 
-
 use Megabonus\Laravel\Affiliate\Contracts\Check;
+use Megabonus\Laravel\Affiliate\Services\Check\CheckService;
 
 class Affiliate implements Check
 {
-    public function __construct(){
+    private $checkService;
 
+    public function __construct(CheckService $checkService){
+        $this->checkService = $checkService;
     }
-
     /**
      * {@inheritdoc}
      */
     public function check(string $link)
     {
-        dd($link);
+        $this->checkService->checkLink($link);
     }
 }
