@@ -41,6 +41,6 @@ class CheckService
     {
         $parseLink = parse_url($link);
 
-        return $parseLink['scheme'].'://'.$parseLink['host'].$parseLink['path']
+        return $parseLink['scheme'].'://'.$parseLink['host'].$parseLink['path'];
     }
 }
