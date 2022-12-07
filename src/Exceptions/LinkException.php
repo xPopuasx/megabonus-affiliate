@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Megabonus\Laravel\Affiliate\Extensions;
+namespace Megabonus\Laravel\Affiliate\Exceptions;
 
 use InvalidArgumentException;
 use Throwable;

@@ -2,7 +2,7 @@
 
 namespace Megabonus\Laravel\Affiliate\Services\Check;
 
-use Megabonus\Laravel\Affiliate\Extensions\LinkException;
+use Megabonus\Laravel\Affiliate\Exceptions\LinkException;
 
 class CheckService
 {
