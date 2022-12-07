@@ -17,8 +17,14 @@ class Affiliate implements Check
     /**
      * {@inheritdoc}
      */
-    public function check(string $link)
+    public function check(string $link): bool
     {
         $this->checkService->checkLink($link);
+
+        if($this->checkService->checkLinkInTable($link)){
+            return true;
+        }
+
+        return false;
     }
 }
