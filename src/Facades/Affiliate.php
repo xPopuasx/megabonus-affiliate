@@ -2,10 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Megabonus\Laravel\Affiliate\Facades;
+namespace Megabonus\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Megabonus\Laravel\Affiliate\Affiliate as FakeAffiliate;
 
 class Affiliate extends Facade
 {
@@ -16,6 +15,6 @@ class Affiliate extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return FakeAffiliate::class;
+        return Affiliate::class;
     }
 }

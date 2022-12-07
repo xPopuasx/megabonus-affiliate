@@ -1,6 +1,6 @@
 <?php
 
-namespace Megabonus\Laravel\Affiliate;
+namespace Megabonus\Contracts;
 
 interface Check
 {
@@ -9,5 +9,4 @@ interface Check
      * @return mixed
      */
     public function check(string $link);
-
 }
