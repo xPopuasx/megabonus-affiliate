@@ -1,0 +1,40 @@
+{
+    "name": "megabonus/laravel-affiliate",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "keywords": [
+        "megabonus",
+        "laravel",
+        "check-afiliate",
+        "affiliate"
+    ],
+    "authors": [
+        {
+            "name": "Sergey Ananin",
+            "email": "s.ananin@megabonus.ru"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "laravel/framework": "^5.0",
+        "laravel/tinker": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Megabonus\\Laravel\\Affiliate\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Megabonus\\Providers\\AffiliateServiceProvider"
+            ],
+            "aliases": {
+                "Affiliate": "Megabonus\\Facades\\Affiliate"
+            }
+        }
+    }
+}
