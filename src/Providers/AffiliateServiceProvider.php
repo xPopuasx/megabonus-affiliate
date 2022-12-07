@@ -17,6 +17,11 @@ class AffiliateServiceProvider extends LaravelServiceProvider
 
     public function register()
     {
+        $this->mergeConfigFrom(
+            $this->getConfigFile(),
+            'affiliate'
+        );
+
         $this->app->bind(FakeAffiliate::class);
     }
 
@@ -25,6 +30,6 @@ class AffiliateServiceProvider extends LaravelServiceProvider
      */
     protected function getConfigFile(): string
     {
-        return __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'affiliate.php';
+        return __DIR__ . DIRECTORY_SEPARATOR . '..' .DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'affiliate.php';
     }
 }
