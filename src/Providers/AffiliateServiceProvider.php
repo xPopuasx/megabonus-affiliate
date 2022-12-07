@@ -13,8 +13,6 @@ class AffiliateServiceProvider extends LaravelServiceProvider
         $this->publishes([
             $this->getConfigFile() => config_path('affiliate.php')
         ], 'config');
-
-        $this->registerFacades();
     }
 
     public function register()
@@ -25,12 +23,6 @@ class AffiliateServiceProvider extends LaravelServiceProvider
         );
 
         $this->app->bind(FakeAffiliate::class);
-    }
-
-    protected function registerFacades(){
-        $this->app->singleton('Affiliate', function($app){
-            return new Affiliate();
-        });
     }
 
     /**
