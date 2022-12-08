@@ -9,6 +9,7 @@ use Megabonus\Laravel\Affiliate\Affiliate as FakeAffiliate;
 
 /**
  * @method static string check(string $url, bool $needSave)
+ * @method static string checkArray(array $urls, bool $needSave)
  */
 class Affiliate extends Facade
 {

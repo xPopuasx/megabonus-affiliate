@@ -3,6 +3,8 @@
 namespace Megabonus\Laravel\Affiliate\Services\Client;
 
 use Exception;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Megabonus\Laravel\Affiliate\Exceptions\ParserException;
 
 class ClientParserService
@@ -11,9 +13,11 @@ class ClientParserService
 
     /**
      * @param array $response
-     * @return void
+     * @param bool $needSave
+     * @param Model|null $model
+     * @return bool
      */
-    public function checkParse(array $response): bool
+    public function checkParse(array $response, bool $needSave, ?Model $model): bool
     {
         try {
             if (!isset($response['resp_result'])) {
@@ -34,6 +38,12 @@ class ClientParserService
                 $this->productData['currency'] = $product['target_original_price_currency'];
                 $this->productData['img'] = $product['product_main_image_url'];
                 $this->productData['shop_id'] = $shop_id;
+                $this->productData['updated_at'] = date('Y-m-d H:i:s');
+                $this->productData['created_at'] = date('Y-m-d H:i:s');
+
+                if($needSave){
+                    $this->saveRow($model);
+                }
 
                 if ($this->productData['commission_rate'] == 100 && $this->productData['relevant_market_commission_rate'] == 100) {
                     return false;
@@ -47,5 +57,19 @@ class ClientParserService
         } catch (Exception $exception) {
             throw ParserException::checkParse();
         }
+    }
+
+
+    private function saveRow(?Model $model): void
+    {
+        if($model instanceof Model){
+            $model->update($this->productData);
+
+            return;
+        }
+
+        DB::table(config('affiliate.has_affiliate_links_table.table'))
+            ->insert($this->productData);
+
     }
 }

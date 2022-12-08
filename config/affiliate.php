@@ -31,8 +31,17 @@ return [
      */
     'has_affiliate_links_table' => [
         'table' => '',
-        'column_name' => '',
-        'is_affiliate_column_name' => ''
+        'columns' => [
+            'title',
+            'commission_rate',
+            'relevant_market_commission_rate',
+            'price',
+            'currency',
+            'img',
+            'shop_id',
+            'created_at',
+            'updated_at'
+        ]
     ],
     /*
      * indicate the table in which the shops-exclusions are indicated
@@ -41,5 +50,9 @@ return [
     'has_shop_exceptions_table' => [
         'table' => '',
         'column_name' => ''
-    ]
+    ],
+    /*
+     * @example ali_exception_shop
+     */
+    'expire_in_days' => 10
 ];

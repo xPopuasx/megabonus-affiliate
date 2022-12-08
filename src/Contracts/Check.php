@@ -10,4 +10,12 @@ interface Check
      * @return mixed
      */
     public function check(string $link, bool $needSave);
+
+
+    /**
+     * @param array $links
+     * @param bool $needSave
+     * @return mixed
+     */
+    public function checkArray(array $links, bool $needSave);
 }

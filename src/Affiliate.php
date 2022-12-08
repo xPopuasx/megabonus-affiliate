@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Megabonus\Laravel\Affiliate;
 
+use Illuminate\Database\Eloquent\Model;
 use Megabonus\Laravel\Affiliate\Clients\TaoBaoClient;
 use Megabonus\Laravel\Affiliate\Contracts\Check;
 use Megabonus\Laravel\Affiliate\Services\Check\CheckService;
@@ -22,6 +23,7 @@ class Affiliate implements Check
         $this->client = $taoBaoClient;
         $this->parserService = $clientParserService;
     }
+
     /**
      * {@inheritdoc}
      */
@@ -29,12 +31,29 @@ class Affiliate implements Check
     {
         $this->checkService->checkLink($link);
 
-        if($this->checkService->checkLinkInTable($link)){
-            return true;
+        $model = $this->checkService->getModel($link);
+
+        if($model instanceof Model){
+            if(strtotime($model->{config('affiliate.has_affiliate_links_table.columns.updated_at')}) <
+                strtotime("-". config('affiliate.expire_in_days'). " day")){
+                return true;
+            }
         }
 
-        $response = $this->client->request($link);
+        $id = $this->checkService->getItemId($link);
 
-        return $this->parserService->checkParse(json_decode(json_encode($response), true));
+        $response = $this->client->request($id);
+
+        return $this->parserService->checkParse(json_decode(json_encode($response), true), $needSave, $model);
+    }
+
+    /**
+     * @param array $links
+     * @param bool $needSave
+     * @return mixed|void
+     */
+    public function checkArray(array $links, bool $needSave): bool
+    {
+        /**TODO: добавить метод проверки массива */
     }
 }
