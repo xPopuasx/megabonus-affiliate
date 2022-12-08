@@ -36,8 +36,6 @@ class ClientParserService
                 $this->productData['currency'] = $product['target_original_price_currency'];
                 $this->productData['img'] = $product['product_main_image_url'];
                 $this->productData['shop_id'] = $shop_id;
-                $this->productData['updated_at'] = date('Y-m-d H:i:s');
-                $this->productData['created_at'] = date('Y-m-d H:i:s');
 
                 if ($this->productData['commission_rate'] == 100 && $this->productData['relevant_market_commission_rate'] == 100) {
                     $this->productData['affiliate'] = 0;

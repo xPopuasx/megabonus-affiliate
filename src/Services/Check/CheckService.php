@@ -59,8 +59,8 @@ class CheckService
                 config('affiliate.has_affiliate_links_table.columns.commission_rate') => $data['commission_rate'] ?? 0,
                 config('affiliate.has_affiliate_links_table.columns.relevant_market_commission_rate') => $data['relevant_market_commission_rate'] ?? 0,
                 config('affiliate.has_affiliate_links_table.columns.shop_id') => $data['shop_id'] ?? 0,
-                config('affiliate.has_affiliate_links_table.columns.created_at') => $data['created_at'],
-                config('affiliate.has_affiliate_links_table.columns.updated_at') => $data['updated_at'],
+                config('affiliate.has_affiliate_links_table.columns.created_at') => date('Y-m-d H:i:s'),
+                config('affiliate.has_affiliate_links_table.columns.updated_at') => date('Y-m-d H:i:s'),
             ]
         );
     }
