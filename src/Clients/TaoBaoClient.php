@@ -44,7 +44,7 @@ class TaoBaoClient
         $this->client->appkey = $this->apiKey;
         $this->client->secretKey = $this->clientSecret;
 
-        return $this->client->execute(json_decode(json_encode($this->taoBaoClientRepository)));
+        return $this->client->execute($this->taoBaoClientRepository);
     }
 
     /**
