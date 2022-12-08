@@ -34,7 +34,9 @@ class CheckService
     public function checkLinkInTable(string $link): bool
     {
         return DB::table(config('affiliate.has_affiliate_links_table.table'))
-            ->where(config('affiliate.has_affiliate_links_table.column_name'), $this->buildLink($link))->exists();
+            ->where(config('affiliate.has_affiliate_links_table.column_name'), $this->buildLink($link))
+            ->where(config('affiliate.has_affiliate_links_table.is_affiliate_column_name'), 1)
+            ->exists();
     }
 
     private function buildLink(string $link): string

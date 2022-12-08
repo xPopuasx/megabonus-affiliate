@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Facade;
 use Megabonus\Laravel\Affiliate\Affiliate as FakeAffiliate;
 
 /**
- * @method static string check(string $url)
+ * @method static string check(string $url, bool $needSave)
  */
 class Affiliate extends Facade
 {

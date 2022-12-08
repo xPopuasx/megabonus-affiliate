@@ -31,7 +31,8 @@ return [
      */
     'has_affiliate_links_table' => [
         'table' => '',
-        'column_name' => ''
+        'column_name' => '',
+        'is_affiliate_column_name' => ''
     ],
     /*
      * indicate the table in which the shops-exclusions are indicated

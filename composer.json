@@ -15,7 +15,8 @@
         }
     ],
     "require": {
-        "php": "^7.2"
+        "php": "^7.2",
+        "myqqiu/laravel-taobao-sdk": "dev-master"
     },
     "require-dev": {
         "laravel/framework": "^5.0",
