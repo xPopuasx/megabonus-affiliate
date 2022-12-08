@@ -13,11 +13,9 @@ class ClientParserService
 
     /**
      * @param array $response
-     * @param bool $needSave
-     * @param Model|null $model
      * @return bool
      */
-    public function checkParse(array $response, bool $needSave, ?Model $model): bool
+    public function checkParse(array $response): bool
     {
         try {
             if (!isset($response['resp_result'])) {
@@ -41,35 +39,31 @@ class ClientParserService
                 $this->productData['updated_at'] = date('Y-m-d H:i:s');
                 $this->productData['created_at'] = date('Y-m-d H:i:s');
 
-                if($needSave){
-                    $this->saveRow($model);
-                }
-
                 if ($this->productData['commission_rate'] == 100 && $this->productData['relevant_market_commission_rate'] == 100) {
+                    $this->productData['affiliate'] = 0;
+
                     return false;
                 }
+
+                $this->productData['affiliate'] = 1;
 
                 return true;
             }
 
-            return ($response['resp_result']['resp_code'] == '200' && (!isset($response['resp_result']['result']['current_record_count'])));
+            $this->productData['affiliate'] = (int)($response['resp_result']['resp_code'] == '200' && (!isset($response['resp_result']['result']['current_record_count'])));
+
+            return (bool)$this->productData['affiliate'];
 
         } catch (Exception $exception) {
             throw ParserException::checkParse();
         }
     }
 
-
-    private function saveRow(?Model $model): void
+    /**
+     * @return array
+     */
+    public function getProductData():array
     {
-        if($model instanceof Model){
-            $model->update($this->productData);
-
-            return;
-        }
-
-        DB::table(config('affiliate.has_affiliate_links_table.table'))
-            ->insert($this->productData);
-
+        return $this->productData;
     }
 }

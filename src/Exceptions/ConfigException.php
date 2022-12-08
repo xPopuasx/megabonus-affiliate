@@ -45,4 +45,20 @@ class ConfigException extends InvalidArgumentException
     {
         return new static('undefined tracking Id');
     }
+
+    /**
+     * @return ConfigException
+     */
+    public static function HasAffiliateLinksTable(): ConfigException
+    {
+        return new static('undefined tracking has affiliate links table');
+    }
+
+    /**
+     * @return ConfigException
+     */
+    public static function HasAffiliateLinksTableColumns(): ConfigException
+    {
+        return new static('undefined tracking has affiliate links table columns');
+    }
 }
