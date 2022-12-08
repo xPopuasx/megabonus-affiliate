@@ -142,6 +142,11 @@ class TaoBaoClientRepository
         return $this->apiParas;
     }
 
+    public function check()
+    {
+
+    }
+
     /**
      * @param $key
      * @param $value
