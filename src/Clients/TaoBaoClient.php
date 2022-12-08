@@ -2,6 +2,7 @@
 
 namespace Megabonus\Laravel\Affiliate\Clients;
 
+use Megabonus\Laravel\Affiliate\Exceptions\ConfigException;
 use Megabonus\Laravel\Affiliate\Repositories\TaoBaoClientRepository;
 use ResultSet;
 
@@ -32,6 +33,7 @@ class TaoBaoClient
      */
     public function request(string $productIds, string $fields = "commission_rate,sale_price")
     {
+        $this->checkConfig();
         $this->taoBaoClientRepository->setFields($fields);
         $this->taoBaoClientRepository->setTargetCurrency("RUB");
         $this->taoBaoClientRepository->setTargetLanguage("RU");
@@ -42,6 +44,24 @@ class TaoBaoClient
         $this->client->appkey = $this->apiKey;
         $this->client->secretKey = $this->clientSecret;
 
-        return $this->client->execute($this->taoBaoClientRepository);
+        return $this->client->execute(json_decode(json_encode($this->taoBaoClientRepository)));
+    }
+
+    /**
+     * @return void
+     */
+    private function checkConfig(): void
+    {
+        if(strlen($this->apiKey)){
+            throw ConfigException::apiKey();
+        }
+
+        if(strlen($this->clientSecret)){
+            throw ConfigException::clientSecret();
+        }
+
+        if(strlen($this->trackingId)){
+            throw ConfigException::trackingId();
+        }
     }
 }
