@@ -4,7 +4,9 @@ namespace Megabonus\Laravel\Affiliate\Providers;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 use Megabonus\Laravel\Affiliate\Affiliate;
+use Megabonus\Laravel\Affiliate\Clients\TaoBaoClient;
 use Megabonus\Laravel\Affiliate\Services\Check\CheckService;
+use Megabonus\Laravel\Affiliate\Services\Client\ClientParserService;
 
 class AffiliateServiceProvider extends LaravelServiceProvider
 {
@@ -23,7 +25,11 @@ class AffiliateServiceProvider extends LaravelServiceProvider
         );
 
         $this->app->bind('affiliate', function ($app) {
-            return new Affiliate($app->make(CheckService::class));
+            return new Affiliate(
+                $app->make(CheckService::class),
+                $app->make(TaoBaoClient::class),
+                $app->make(ClientParserService::class)
+            );
         });
     }
 
