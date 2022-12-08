@@ -52,15 +52,15 @@ class TaoBaoClient
      */
     private function checkConfig(): void
     {
-        if(strlen($this->apiKey)){
+        if(strlen($this->apiKey) == 0){
             throw ConfigException::apiKey();
         }
 
-        if(strlen($this->clientSecret)){
+        if(strlen($this->clientSecret) == 0){
             throw ConfigException::clientSecret();
         }
 
-        if(strlen($this->trackingId)){
+        if(strlen($this->trackingId) == 0){
             throw ConfigException::trackingId();
         }
     }
