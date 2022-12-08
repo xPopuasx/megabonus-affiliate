@@ -35,6 +35,6 @@ class Affiliate implements Check
 
         $response = $this->client->request($link);
 
-        return $this->parserService->checkParse(json_decode(json_encode($response)));
+        return $this->parserService->checkParse(json_decode(json_encode($response), true));
     }
 }
