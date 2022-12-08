@@ -4,8 +4,57 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f170fb8692b838af31965d69156b9a1f",
-    "packages": [],
+    "content-hash": "596292ecc6a259753cbd2ecbef6aa9f1",
+    "packages": [
+        {
+            "name": "myqqiu/laravel-taobao-sdk",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/myqqiu/laravel-taobao-sdk.git",
+                "reference": "3d0fd92c22367772597ee6f0450ddde54648eacc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/myqqiu/laravel-taobao-sdk/zipball/3d0fd92c22367772597ee6f0450ddde54648eacc",
+                "reference": "3d0fd92c22367772597ee6f0450ddde54648eacc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">= 5.2.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "TopSdk.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "qqiu",
+                    "email": "qqiu@qq.com"
+                }
+            ],
+            "description": "taobao-sdk-PHP-auto_1457166217151-20181215",
+            "keywords": [
+                "api",
+                "sdk",
+                "taobao",
+                "top"
+            ],
+            "support": {
+                "issues": "https://github.com/myqqiu/laravel-taobao-sdk/issues",
+                "source": "https://github.com/myqqiu/laravel-taobao-sdk/tree/master"
+            },
+            "time": "2018-12-16T04:40:39+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3916,7 +3965,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "myqqiu/laravel-taobao-sdk": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Magebonus\Laravel\Affiliate\Repositories;
+namespace Megabonus\Laravel\Affiliate\Repositories;
 
 class TaoBaoClientRepository
 {

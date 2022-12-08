@@ -2,7 +2,7 @@
 
 namespace Megabonus\Laravel\Affiliate\Clients;
 
-use Magebonus\Laravel\Affiliate\Repositories\TaoBaoClientRepository;
+use Megabonus\Laravel\Affiliate\Repositories\TaoBaoClientRepository;
 use ResultSet;
 
 class TaoBaoClient
